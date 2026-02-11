@@ -1,0 +1,370 @@
+/* === Reset & Base === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  color: #1e293b;
+  background: #f8fafc;
+  line-height: 1.6;
+}
+
+#app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+}
+
+/* === Header === */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+#status-bar {
+  font-size: 0.8rem;
+}
+
+#init-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.status-success {
+  background: #dcfce7 !important;
+  color: #166534 !important;
+}
+
+.status-error {
+  background: #fee2e2 !important;
+  color: #991b1b !important;
+}
+
+.status-info {
+  background: #f1f5f9 !important;
+  color: #64748b !important;
+}
+
+/* === Tabs === */
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 1.5rem;
+}
+
+.tab {
+  padding: 0.5rem 1.25rem;
+  border: none;
+  background: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tab:hover {
+  color: #2563eb;
+}
+
+.tab.active {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* === Sections === */
+section {
+  margin-bottom: 1.5rem;
+}
+
+section h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #334155;
+}
+
+/* === Data Section === */
+.data-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+/* === Buttons === */
+button {
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 0.45rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#btn-load-sample,
+#btn-execute {
+  background: #2563eb;
+  color: #fff;
+  font-weight: 500;
+}
+
+#btn-load-sample:hover:not(:disabled),
+#btn-execute:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+/* === Preset Queries === */
+.preset-queries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.preset {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+}
+
+.preset:hover {
+  background: #e2e8f0;
+}
+
+/* === Drop Zone === */
+.drop-zone {
+  border: 2px dashed #cbd5e1;
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #64748b;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.drop-zone.drag-over {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.file-label {
+  color: #2563eb;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* === SQL Input === */
+#sql-input {
+  width: 100%;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  padding: 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  resize: vertical;
+  background: #fff;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+#sql-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+#sql-input:disabled {
+  background: #f8fafc;
+  color: #94a3b8;
+}
+
+.query-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+#query-stats {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* === Result Table === */
+.result-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#result-count {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #94a3b8;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+th {
+  background: #f1f5f9;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 2px solid #e2e8f0;
+  white-space: nowrap;
+}
+
+td {
+  padding: 0.4rem 0.75rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+tbody tr:hover {
+  background: #eff6ff;
+}
+
+.null {
+  color: #cbd5e1;
+  font-style: italic;
+}
+
+.no-data {
+  padding: 2rem;
+  text-align: center;
+  color: #94a3b8;
+}
+
+/* === Table List === */
+#table-list {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+#table-list .table-tag {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin: 0.25rem 0.25rem 0.25rem 0;
+  font-size: 0.8rem;
+}
+
+/* === Error === */
+.error-box {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  font-family: "SF Mono", "Fira Code", monospace;
+}
+
+/* === Dashboard === */
+#dashboard-content {
+  min-height: 200px;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.dashboard-panel {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.dashboard-panel h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.75rem;
+}
+
+.placeholder-message {
+  text-align: center;
+  color: #94a3b8;
+  padding: 3rem 1rem;
+}
+
+/* === Responsive === */
+@media (max-width: 640px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .data-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .drop-zone {
+    width: 100%;
+  }
+
+  .preset-queries {
+    gap: 0.35rem;
+  }
+}
